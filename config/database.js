@@ -1,18 +1,20 @@
 module.exports = ({ env }) => ({
-  defaultConnection: 'default',
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: 'bookshelf',
+      connector: "mongoose",
       settings: {
-        client: 'mysql',
-        host: env('DATABASE_HOST', '127.0.0.1'),
-        port: env.int('DATABASE_PORT', 3306),
-        database: env('DATABASE_NAME', 'treemotion-strapi'),
-        username: env('DATABASE_USERNAME', 'root'),
-        password: env('DATABASE_PASSWORD', ''),
-        ssl: env.bool('DATABASE_SSL', false),
+        host: env("DATABASE_HOST", "127.0.0.1"),
+        srv: env.bool("DATABASE_SRV", false),
+        port: env.int("DATABASE_PORT", 27017),
+        database: env("DATABASE_NAME", "treemotion"),
+        username: env("DATABASE_USERNAME", null),
+        password: env("DATABASE_PASSWORD", null),
       },
-      options: {}
+      options: {
+        authenticationDatabase: env("AUTHENTICATION_DATABASE", null),
+        ssl: env.bool("DATABASE_SSL", false),
+      },
     },
   },
 });

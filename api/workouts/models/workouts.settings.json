@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workouts",
+  "info": {
+    "name": "Workouts"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "distance": {
+      "type": "decimal"
+    },
+    "avg_speed": {
+      "type": "decimal"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "workouts"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "partner": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "exp": {
+      "type": "integer",
+      "default": 0
+    },
+    "private": {
+      "type": "boolean",
+      "default": false
+    },
+    "route": {
+      "type": "json"
+    }
+  }
+}
